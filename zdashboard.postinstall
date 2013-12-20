@@ -1,0 +1,15 @@
+#!/bin/bash
+APPPATH=/usr/share/zdashboard
+VARPATH=/var/lib/zdashboard
+mkdir $VARPATH
+
+chown -R www-data:www-data $APPPATH
+chmod -R 555 $APPPATH
+
+chown -R www-data:www-data $VARPATH
+chmod -R 755 $VARPATH
+
+insserv zdashboard
+
+exit 0
+
