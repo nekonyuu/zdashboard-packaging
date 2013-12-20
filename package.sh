@@ -19,4 +19,4 @@ ln -sf /etc/zdashboard/ldap.yml usr/share/zdashboard/config/ldap.yml
 ln -sf /etc/zdashboard/secret_token.rb usr/share/zdashboard/config/initializers/secret_token.rb
 
 
-fpm -n zdashboard -v $VERSION -a amd64 -C build -m "<jonathan.raffre@smile.fr>" --after-install zdashboard.postinstall --description "ZDashboard - Zarafa User Management Interface" --url 'https://github.com/apognu/zdashboard' -t deb --config-files etc/zdashboard/ldap.yaml --config-files etc/zdashboard/database.yml --config-files /etc/zdashboard/secret_token.rb -d ruby1.9.1 -d build-essential -s dir etc usr
+fpm -n zdashboard -v $VERSION -a amd64 -C build -m "<jonathan.raffre@smile.fr>" --after-install zdashboard.postinstall --description "ZDashboard - Zarafa User Management Interface" --url 'https://github.com/apognu/zdashboard' -t deb --config-files etc/zdashboard/ldap.yaml --config-files etc/zdashboard/database.yml --config-files /etc/zdashboard/secret_token.rb -d ruby1.9.1 -d build-essential -d libssl-dev -d libldap2-dev -d libsasl2-dev -d libsqlite3-dev -s dir etc usr

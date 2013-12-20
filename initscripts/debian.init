@@ -21,7 +21,7 @@ start()
 {
   log_begin_msg 'Starting Zarafa Dashboard puma webserver'
 
-  start-stop-daemon -S -b -m -p $PIDFILE -d $APP_PATH -u www-data -x $BUNDLE -- exec puma -e production -b unix:///var/run/zdashboard.sock \
+  start-stop-daemon -S -b -m -p $PIDFILE -d $APP_PATH -u www-data -x $BUNDLE -- exec puma -e production -b tcp://127.0.0.1:3000 \
     && sleep 3 
 
   log_end_msg "$?"
