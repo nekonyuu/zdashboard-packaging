@@ -3,6 +3,10 @@ APPPATH=/usr/share/zdashboard
 VARPATH=/var/lib/zdashboard
 mkdir $VARPATH
 
+# Deploy app
+cd $APPPATH
+bundle install --deployment
+
 chown -R www-data:www-data $APPPATH
 chmod -R 555 $APPPATH
 
